@@ -10,9 +10,10 @@ public class Driver {
         int age;
         char gender;
         int[] stepCount = new int[7];
-        int total = 0;
+        
         
         Scanner sc = new Scanner(System.in); //scanner
+        
 
         FitnessTracker t = new FitnessTracker(); //calling the other class
 
@@ -39,7 +40,7 @@ public class Driver {
        
 
         for(int i = 0; i < stepCount.length; i++){      //loop to get daily steps for 7 days
-            System.out.println("ENTER YOUR STEP RANNGE: " + (i+1));
+            System.out.println("ENTER YOUR STEP RANGE: " + (i+1));
              stepCount[i] = sc.nextInt();
              while(stepCount[i] < 0){   //checker to make sure steps is not negative
                 System.out.println("INVALID");
@@ -54,10 +55,18 @@ public class Driver {
         System.out.println("Name: " + t.getName());
         System.out.println("Age: " + t.getAge());
         System.out.println("Gender: " + t.getGender());
+        System.out.println("Monday: " + stepCount[0]);
+        System.out.println("Tuesday: " + stepCount[1]);
+        System.out.println("Wednesday: " + stepCount[2]);
+        System.out.println("Thursday: " + stepCount[3]);
+        System.out.println("Friday: " + stepCount[4]);
+        System.out.println("Saturday: " + stepCount[5]);
+        System.out.println("Sunday: " + stepCount[6]);
+        System.out.println("----------------------------------------------------");
         System.out.println("YOUR TOTAL STEPS FOR THE WEEK: " + t.getSteps());
         System.out.println("YOUR ACTIVITY LEVEL FOR THE WEEK: " + t.activityLevel());
         System.out.println("----------------------------------------------------");
-
+        
         sc.close();
     }
 }
