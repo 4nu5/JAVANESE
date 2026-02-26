@@ -4,6 +4,13 @@ import java.util.Scanner;
 
 
 public class CustomFlower {
+    public void displayPackage(){
+            System.out.println("----NUMBER OF FLOWERS----------|---PRICE(RM)---");
+            System.out.println(" 1. 1 - 10 Flowers             |  10.00");
+            System.out.println(" 2. 11 - 50 Flowers            |   9.50");
+            System.out.println(" 3. Above 50 Flowers           |   8.00");
+            System.out.println("===============================|===============");
+    }
     public double customFlower(){
         
         int Flowers = 0;
@@ -12,6 +19,7 @@ public class CustomFlower {
         double package_1_10 = 10;
         double package_11_50 = 9.5;
         double package_Over_50 = 8;
+        int wrappingFees = 10;
 
         Scanner sc = new Scanner(System.in);
 
@@ -44,7 +52,8 @@ public class CustomFlower {
             System.out.println("Would you like to add anymore flowers (Y/N)");  //ASKING IF THE USER WANTS TO ADD FLOWERS
             Ans = sc.next().toUpperCase().charAt(0);           //RECIEVING THE CHAR VALUE FROM THE ADDITION OF FLOWERS
                 } while (Ans == 'Y');     //THE LOOP ENDS IF THE USER DOESNT WANT TO ADD FLOWERS
-
-            return calculations;
+            
+            Report.addToWrappinFees(wrappingFees);
+            return calculations + wrappingFees;
     }
 }

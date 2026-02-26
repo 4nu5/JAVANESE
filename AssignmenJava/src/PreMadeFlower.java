@@ -3,9 +3,23 @@
 import java.util.Scanner;
 
 public class PreMadeFlower {
+
+    public void displayPreMadePackage(){
+             System.out.println("----PACKAGE TYPE---------------|---PRICE(RM)---");
+            System.out.println(" 1.Flower Stand                |  178.00");
+            System.out.println(" 2.Flower Bouquet              |  228.00");
+            System.out.println(" 3.Graduation Bouquet (Mini)   |   58.00");
+            System.out.println(" 4.Graduation Bouquet (Flower) |  128.00");
+            System.out.println(" 5.Graduation Bouquet (Toy)    |  188.00");
+            System.out.println(" 6.Wedding Bouquet Mini        |   68.00");
+            System.out.println(" 7.Wedding Bouquet             |  168.00");
+            System.out.println("===============================|===============");
+    }
+
     public double preMadeFlower(){
         
         Scanner sc = new Scanner(System.in);
+        //  Report r = new Report();
         double flowerStand = 178.00;
         double flowerBouquet = 228.00;
         double graduationBoquetMini = 58.00;
@@ -70,8 +84,9 @@ public class PreMadeFlower {
                     price += weddingBouquet * unit;
                     break;
             }
+            
         }while(ans != 0);       //THE LOOP WILL EXIT WHEN THE USER ENTERS 0
-
+       
         return price;
     }
 }
