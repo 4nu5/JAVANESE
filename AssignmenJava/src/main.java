@@ -16,6 +16,8 @@ public class main {
         double finalTotal = 0.0;
         int exit = 0;
         int orderCounter = 0;
+        double DELIVERY = 0;
+        char deliveryAnswer;
         
 
         do {
@@ -29,7 +31,7 @@ public class main {
           exit = sc.nextInt();
           sc.nextLine();
 
-          if(exit == 1){
+          if(exit == 2){
             orderCounter += 1;
             Report.addToTotalOrders(orderCounter);
           }
@@ -56,14 +58,14 @@ public class main {
         if ("PACKAGE".equals(AnswerFlower)) {
         PreMadeFlower flower = new PreMadeFlower(); //<-- premade package
         Price = 0;
-        Price += flower.preMadeFlower();
+        Price += flower.calculateTotal();
         Report.addToPackageRevenue(Price);
 
         }
         else if ("CUSTOM".equals(AnswerFlower)) {
             total = 0;
             CustomFlower price = new CustomFlower();        //<-- custom made package
-            total += price.customFlower();
+            total += price.calculateTotal();
             Report.addToCustomRevenue(total);
         }
         System.out.println("WOULD YOU LIKE TO ADD MORE ITEMS?");        //asking if the user wants to purchase the other package
@@ -76,9 +78,20 @@ public class main {
 
         } while (Answer != 'N'); //<-- stops loop
         
-        Delivery delivery = new Delivery(); //<-- delivery class
-        double DELIVERY = delivery.getDelivery(0.0);
-        Report.addToDeliveryFees(DELIVERY);
+          System.out.println("Would you Like Delivery?");
+          deliveryAnswer = sc.nextLine().toUpperCase().charAt(0);
+          while(deliveryAnswer != 'Y' && deliveryAnswer != 'N'){
+            System.out.println("Invalid Input Please Reneter: ");
+            deliveryAnswer = sc.nextLine().toUpperCase().charAt(0);
+          }
+          if(deliveryAnswer == 'Y'){
+          Delivery delivery = new Delivery(); //<-- delivery class
+          DELIVERY = delivery.getDelivery(0.0);
+          Report.addToDeliveryFees(DELIVERY);
+          }
+         
+        
+        
 
       double subTotal = Price + total;  //<-- calcutale subtotal
       double Tax = (subTotal + DELIVERY) * 0.08; //<-- calculate tax

@@ -1,3 +1,6 @@
+
+
+
 public class Report {
     private static int totalOders = 0;
     private static double totalPackageRevenue = 0;
@@ -53,11 +56,11 @@ public class Report {
    
     //change all to printf
     public static void displayInfo(){
-        System.out.println("Package: " + totalPackageRevenue);
-        System.out.println("Custom: " + totalCustomRevenue);
-        System.out.println("Delivery: " + totalDeliveryFees);
+        System.out.printf("Package: %.2f \n" , totalPackageRevenue);
+        System.out.printf("Custom: %.2f \n" , totalCustomRevenue);
+        System.out.printf("Delivery: %.2f \n" , totalDeliveryFees);
         System.out.printf("Tax: %.2f \n", totalTax);
-        System.out.println("Grand Total: " + grandTotalBusiness);
+        System.out.printf("Grand Total: %.2f \n " , grandTotalBusiness);
         System.out.println("Total Orders: " + totalOders);
 
     }

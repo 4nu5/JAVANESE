@@ -1,8 +1,10 @@
 
 
+
+
 import java.util.Scanner;
 
-public class PreMadeFlower {
+public class PreMadeFlower extends Flower{
 
     public void displayPreMadePackage(){
              System.out.println("----PACKAGE TYPE---------------|---PRICE(RM)---");
@@ -15,8 +17,8 @@ public class PreMadeFlower {
             System.out.println(" 7.Wedding Bouquet             |  168.00");
             System.out.println("===============================|===============");
     }
-
-    public double preMadeFlower(){
+    @Override
+    public double calculateTotal(){
         
         Scanner sc = new Scanner(System.in);
         //  Report r = new Report();
@@ -44,43 +46,82 @@ public class PreMadeFlower {
 
             System.out.print("PLEASE MAKE A SELECTION (Type 1,2,3,4,5,6,7 (Press 0 to Exit)) : ");
             ans = sc.nextInt();         //INPUT RECIEVING FOR THE PACKAGE TYPE
+            if(ans < 0 || ans > 7){
+                System.out.println("Invalid Input Please Re-Enter");
+                ans = sc.nextInt(); 
+            }
 
 
             switch(ans){    //SWITCH CASE FOR THE PACKAGE TYPE AND THE CALCULATIONS OF THE ENTERED AMOUNT
                 case 1:
                 System.out.println("STATE THE NUMBER OF FLOWER STANDS");
                 unit = sc.nextInt();
+                if(unit < 0){
+                    System.out.println("Invalid Amount Entered");
+                    System.out.println("Please Re-Enter Amount");
+                    unit = sc.nextInt();
+                }
                 price += flowerStand * unit;
                 break;
 
                 case 2:
                     System.out.println("STATE THE NUMBER OF FLOWER BOUQUETS");
                     unit = sc.nextInt();
+                    if(unit < 0){
+                    System.out.println("Invalid Amount Entered");
+                    System.out.println("Please Re-Enter Amount");
+                    unit = sc.nextInt();
+                 }   
                     price += flowerBouquet * unit;
                     break;
                 case 3: 
                     System.out.println("STATE THE NUMBER OF Graduation Bouquet (Mini)");
                     unit = sc.nextInt();
+                    if(unit < 0){
+                    System.out.println("Invalid Amount Entered");
+                    System.out.println("Please Re-Enter Amount");
+                    unit = sc.nextInt();
+                }
                     price += graduationBoquetMini * unit;
                     break;
                 case 4:
                     System.out.println("STATE THE NUMBER OF Graduation Bouquet (Flower)");
                     unit = sc.nextInt();
+                    if(unit < 0){
+                    System.out.println("Invalid Amount Entered");
+                    System.out.println("Please Re-Enter Amount");
+                    unit = sc.nextInt();
+                }
                     price += graduationBoquetFlower * unit;
                     break;
                 case 5:
                     System.out.println("STATE THE NUMBER OF Graduation Bouquet (Toy)");
                     unit = sc.nextInt();
+                    if(unit < 0){
+                    System.out.println("Invalid Amount Entered");
+                    System.out.println("Please Re-Enter Amount");
+                    unit = sc.nextInt();
+                }
                     price += graduationBoquetToy * unit;
                     break;
                 case 6:
                     System.out.println("STATE THE NUMBER OF Wedding Bouquet (Mini)");
                     unit = sc.nextInt();
+                    if(unit < 0){
+                    System.out.println("Invalid Amount Entered");
+                    System.out.println("Please Re-Enter Amount");
+                    unit = sc.nextInt();
+                }
                     price += weddingBouquetMini * unit;
                     break;
                 case 7:
                     System.out.println("STATE THE NUMBER OF Graduation Bouquet");
                     unit = sc.nextInt();
+                    if(unit < 0){
+                    System.out.println("Invalid Amount Entered");
+                    System.out.println("Please Re-Enter Amount");
+                    unit = sc.nextInt();
+                }
                     price += weddingBouquet * unit;
                     break;
             }
