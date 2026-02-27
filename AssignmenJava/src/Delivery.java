@@ -14,6 +14,10 @@ public class Delivery {
 
          System.out.printf("Please Enter The distance from your house to the shop: ");
          distance = sc.nextDouble();
+         while(distance < 0){
+            System.out.println("Please Enter a Valid Number");
+            distance = sc.nextDouble();
+         }
 
          if (distance < 5)       //DISTANCE CALCULATIONS
             {
@@ -28,10 +32,8 @@ public class Delivery {
             {
                 distance *= 2.0;
             }
-
-            System.out.println(distance);
             return distance;
         }
-
+    
     }
 

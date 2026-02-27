@@ -3,8 +3,16 @@ import java.util.Scanner;
 
 
 
-public class CustomFlower {
-    public double customFlower(){
+public class CustomFlower extends Flower {
+    public void displayPackage(){
+            System.out.println("----NUMBER OF FLOWERS----------|---PRICE(RM)---");
+            System.out.println(" 1. 1 - 10 Flowers             |  10.00");
+            System.out.println(" 2. 11 - 50 Flowers            |   9.50");
+            System.out.println(" 3. Above 50 Flowers           |   8.00");
+            System.out.println("===============================|===============");
+    }
+    @Override
+    public double calculateTotal(){
         
         int Flowers = 0;
         double calculations = 0.0;
@@ -12,6 +20,7 @@ public class CustomFlower {
         double package_1_10 = 10;
         double package_11_50 = 9.5;
         double package_Over_50 = 8;
+        int wrappingFees = 10;
 
         Scanner sc = new Scanner(System.in);
 
@@ -25,6 +34,10 @@ public class CustomFlower {
 
             System.out.println("Please Input Amount of Flowers");       //RECIEVING INPUT FOR THE AMOUNT OF FLOWERS BY THE USER
             Flowers += sc.nextInt();
+            while(Flowers < 0){
+                System.out.println("Please Enter a Valid Number");
+                Flowers += sc.nextInt();
+            }
             calculations = 0.0;
 
             if(Flowers >=  1 && Flowers <= 10)          //CALCULATIONS FOR THE PRICING OF THE FLOWERS
@@ -43,8 +56,16 @@ public class CustomFlower {
             System.out.println("Current Amount Of Flowers: " + Flowers);        //DISPLAYING THE AMOUNT OF FLOWERS CHOSEN BY THE USER
             System.out.println("Would you like to add anymore flowers (Y/N)");  //ASKING IF THE USER WANTS TO ADD FLOWERS
             Ans = sc.next().toUpperCase().charAt(0);           //RECIEVING THE CHAR VALUE FROM THE ADDITION OF FLOWERS
+            while(Ans != 'Y' && Ans != 'N')
+            {
+                System.out.println("Invalid Input Please Re-Enter");
+                Ans = sc.next().toUpperCase().charAt(0);
+            }
                 } while (Ans == 'Y');     //THE LOOP ENDS IF THE USER DOESNT WANT TO ADD FLOWERS
-
-            return calculations;
+            
+            Report.addToWrappinFees(wrappingFees);
+            return calculations + wrappingFees;
     }
 }
+
+
