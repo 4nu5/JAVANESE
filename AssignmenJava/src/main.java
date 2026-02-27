@@ -41,12 +41,18 @@ public class main {
               pf.displayPreMadePackage();
 
               cf.displayPackage();
+              break;
             case 2:
               do {        //LOOP FOR BUYING STUFF
          System.out.println("WELCOME TO BLOOM BLOOM FLORIST");
         System.out.println("WOULD YOU LIKE CUSTOM OR PRE-PACKAGED FLOWERS");            
-        System.out.println("TYPE \"CUSTOM\" FOR CUSTOM & \" PACKAGE\" FOR PRE-PACKAGED FLOWER");        
+        System.out.println("TYPE \"CUSTOM\" FOR CUSTOM & \" PACKAGE\" FOR PRE-PACKAGED FLOWER");    
         AnswerFlower = sc.nextLine().toUpperCase();
+          while(!("PACKAGE".equals(AnswerFlower) || "CUSTOM".equals(AnswerFlower))){
+          System.out.println("INVALID INPUT");
+          System.out.println("WOULD YOU LIKE CUSTOM OR PRE-PACKAGED FLOWERS?");
+          AnswerFlower = sc.nextLine().toUpperCase();
+        }
         if ("PACKAGE".equals(AnswerFlower)) {
         PreMadeFlower flower = new PreMadeFlower(); //<-- premade package
         Price = 0;
@@ -62,6 +68,11 @@ public class main {
         }
         System.out.println("WOULD YOU LIKE TO ADD MORE ITEMS?");        //asking if the user wants to purchase the other package
         Answer = sc.nextLine().toUpperCase().charAt(0);
+        while(Answer != 'N' && Answer != 'Y'){
+          System.out.println("INVALID INPUT");
+          System.out.println("RE-ENTER INPUT");
+          Answer = sc.nextLine().toUpperCase().charAt(0);
+        }
 
         } while (Answer != 'N'); //<-- stops loop
         
@@ -89,7 +100,7 @@ public class main {
             Report.displayInfo();
             break;
           }
-        } while(exit != 3);
+        } while(exit != 4);
         sc.close();
     }
 }
